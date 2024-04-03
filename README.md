@@ -2,16 +2,18 @@
 
 ## Overview
 
-QuickShrink API provides a simple and efficient way to create short URLs. 
-It's built using Node.js and Express, and it leverages MongoDB for storage. 
-This API is perfect for applications needing URL shortening functionality. 
+- QuickShrink API provides a simple and efficient way to create short URLs. 
+- It's built using Node.js and Express, and it leverages MongoDB for storage. 
+- This API is perfect for applications needing URL shortening functionality. 
+
+
 Below is the documentation on how to interact with the QuickShrink API.
 
 ## Getting Started
 
-### API UR:
+### API URL:
 
-The API Base URL is set up as https://quickshrink-api
+The API Base URL is set up as https://quickshrink-api.vercel.app/
 
 ## Endpoints
 
@@ -28,7 +30,7 @@ The API Base URL is set up as https://quickshrink-api
     "message": "WELCOME TO QuickShrink API!!"
   }
   
-```
+  ```
 
 ### List All URLs
 
@@ -48,7 +50,7 @@ The API Base URL is set up as https://quickshrink-api
     ...
   ]
   
-```
+  ```
 
 ### Redirect to Original URL
 
@@ -71,7 +73,7 @@ The API Base URL is set up as https://quickshrink-api
     "url": "URL to be shortened"
   }
   
-```
+  ```
 - **Response:**
   ```json
 
@@ -80,7 +82,7 @@ The API Base URL is set up as https://quickshrink-api
     "status": "HTTP status code"
   }
   
-```
+  ```
 
 ## Error Handling
 
