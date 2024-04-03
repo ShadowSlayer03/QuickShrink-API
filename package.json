@@ -1,0 +1,29 @@
+{
+  "name": "quickshrink-url-shortener",
+  "version": "1.0.0",
+  "description": "A simple to use URL shortener API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "QuickShrink",
+    "url",
+    "shortener",
+    "api",
+    "simple",
+    "easy-to-use"
+  ],
+  "author": "Arjun RN",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.2.4",
+    "nanoid": "^5.0.6"
+  }
+}
