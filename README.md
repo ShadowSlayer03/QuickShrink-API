@@ -13,7 +13,7 @@ Below is the documentation on how to interact with the QuickShrink API.
 
 ### API URL:
 
-The API Base URL is set up as https://quickshrink-api.vercel.app/
+The API Base URL is set up as https://qshrink.vercel.app/
 
 ## Endpoints
 
