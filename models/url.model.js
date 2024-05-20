@@ -8,6 +8,10 @@ let urlSchema = new mongoose.Schema({
     slug:{
         type: String,
         required: true
+    },
+    expiryDate:{
+        type: Date,
+        required: true
     }
 },{timestamps: true});
 
