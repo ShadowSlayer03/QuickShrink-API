@@ -22,9 +22,9 @@ app.use(cors());
 app.use(helmet());
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
+  windowMs: 10 * 60 * 1000,
   max: 100,
-  message: "Too many requests, please try again later.",
+  message: "Too Many Requests, Please Try Again Later!\n TimeOut: 10mins",
 });
 app.use(limiter);
 
