@@ -198,8 +198,8 @@ app.patch("/api/expiration/:slug", async (req, res, next) => {
       return res.json({ message: "No URL With The Given Slug Was Found!" });
     }
 
-    url.expiryDate = expirationDate;
-    await url.save(); // Use await to ensure the save operation completes
+    url.expiryDate = new Date(expirationDate); 
+    await url.save(); 
 
     res.status(200).json({ message: "Expiration Date Changed Successfully!", status: 200 });
   } catch (error) {
