@@ -82,7 +82,7 @@ app.get("/:slug", async (req, res, next) => {
     if (url) {
       res.status(301).redirect(url.originalURL);
     } else {
-      next();
+      res.status(404).send("Sorry, This URL Does Not Exist!")
     }
   } catch (error) {
     next(error);
@@ -173,7 +173,37 @@ app.post("/api/custom/:customSlug", async (req, res, next) => {
       res.status(201).json(newURL);
     }
   } catch (error) {
-    next(new Error("Something went wrong in creating the custom URL!"));
+    next(error);
+  }
+});
+
+app.patch("/api/expiration/:slug", async (req, res, next) => {
+  let { expirationDate } = req.body;
+  let { slug } = req.params;
+  console.log("Expiry Date: ", expirationDate);
+
+  if (!expirationDate) {
+    return next(new Error("No Expiration Date Provided!"));
+  }
+
+  if (!slug) {
+    return next(new Error("No Slug Provided!"));
+  }
+
+  try {
+    let url = await URL.findOne({ slug });
+
+    if (!url) {
+      res.status(404);
+      return res.json({ message: "No URL With The Given Slug Was Found!" });
+    }
+
+    url.expiryDate = expirationDate;
+    await url.save(); // Use await to ensure the save operation completes
+
+    res.status(200).json({ message: "Expiration Date Changed Successfully!", status: 200 });
+  } catch (error) {
+    next(error);
   }
 });
 
@@ -183,14 +213,11 @@ app.use(errorHandler);
 app.listen(port, () => {
   if (process.env.ENV == "production")
     console.log(`Server Running at ${process.env.URL}.`);
-  else
-    console.log(
-      `Server listening at http://localhost:${process.env.PORT}.`
-    );
+  else console.log(`Server listening at http://localhost:${process.env.PORT}.`);
 });
 
 // Will be executed every day at midnight
-cron.schedule('0 0 * * *', () => {
-  console.log('Starting up the CRON Job to Delete Expired URLs!');
+cron.schedule("0 0 * * *", () => {
+  console.log("Starting up the CRON Job to Delete Expired URLs!");
   deleteExpiredURLs();
 });
