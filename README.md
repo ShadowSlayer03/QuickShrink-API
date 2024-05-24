@@ -32,16 +32,14 @@ QuickShrink is a URL shortening service API built with Node.js, Express, and Mon
 ```bash
     git clone https://github.com/yourusername/quickshrink.git
     cd quickshrink
-    ```
-c276a8e3-8ab3-43f9-ad27-bc5aa29dec41
+```
 
 
 2. Install dependencies:
     
 ```bash
     npm install
-    ```
-a2582635-ebf7-4aec-94da-65bbf49e469d
+```
 
 
 3. Create a `.env` file in the root directory and add the necessary environment variables (see [Environment Variables](#environment-variables)).
@@ -50,7 +48,7 @@ a2582635-ebf7-4aec-94da-65bbf49e469d
     
 ```bash
     npm start
-    ```
+```
 
 ## Usage
 
