@@ -27,6 +27,11 @@ QuickShrink is a URL shortening service API built with Node.js, Express, and Mon
 
 ## API Endpoints
 
+### Home
+
+- **GET** `/`
+    - **Response**: `{ "message": "WELCOME TO QuickShrink API!!" }`
+
 ### Health Check
 
 - **GET** `/api/healthcheck`

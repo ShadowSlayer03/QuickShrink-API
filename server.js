@@ -144,6 +144,10 @@ app.post("/api/custom/:customSlug", async (req, res, next) => {
     return res.status(400).json({
       message: "The Custom URL must be at least 5 characters long!",
     });
+  }else if(customSlug.length>15){
+    return res.status(400).json({
+      message: "The Custom URL must only have a maximum of 15 characters!",
+    });
   }
 
   if (!originalURL) {
